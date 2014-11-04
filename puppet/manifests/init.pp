@@ -1,3 +1,3 @@
 node 'moodledev' {
-  include mysql::server, moodle
+  include mysql::server, composer, selenium, moodle
 }
