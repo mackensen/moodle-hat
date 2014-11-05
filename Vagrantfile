@@ -16,7 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :shell, path: "bootstrap.sh"
 
   # Define host aliases.
-  config.vm.hostname = "moodledev"
+  config.vm.hostname = "moodlehat"
   config.hostsupdater.aliases = ["local.moodle.dev"]
   config.hostsupdater.remove_on_suspend = true
 
