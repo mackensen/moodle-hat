@@ -26,6 +26,10 @@ $CFG->behat_dataroot = '/var/www/moodle/behatdata';
 $CFG->behat_prefix = 'behat_';
 $CFG->behat_wwwroot = 'http://localhost';
 
+// PHPUnit configuration.
+$CFG->phpunit_prefix = 'phpu_';
+$CFG->phpunit_dataroot = '/var/www/moodle/phpudata';
+
 $CFG->directorypermissions = 02777;
 
 

@@ -12,7 +12,7 @@ class moodle::config {
   }->
   class {'::apache::mod::php':
   }->
-  file { ["${moodle::dataroot}", "${moodle::behatdataroot}"] :
+  file { ["${moodle::dataroot}", "${moodle::behatdataroot}", "${moodle::phpudataroot}"] :
     ensure => "directory",
     owner => "root",
     group => "root",

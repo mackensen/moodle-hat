@@ -6,7 +6,7 @@ class moodle::install {
     cwd         => "${moodle::docroot}",
   }
 
-  package { ['php5-mysql', 'php5-curl', 'php5-gd']:
+  package { ['php5-mysql', 'php5-curl', 'php5-gd', 'php5-xmlrpc', 'php5-intl']:
     ensure => "present"
   }->
   exec { "install_moodle":
