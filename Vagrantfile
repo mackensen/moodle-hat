@@ -17,7 +17,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Define host aliases.
   config.vm.hostname = "moodlehat"
-  config.hostsupdater.aliases = ["local.moodle.dev"]
+  config.hostsupdater.aliases = ["local.moodle.dev", "behat.moodle.dev"]
   config.hostsupdater.remove_on_suspend = true
 
   # Disable automatic box update checking. If you disable this, then
@@ -89,6 +89,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # the file default.pp in the manifests_path directory.
   #
   config.vm.provision "puppet" do |puppet|
+  #  puppet.options = "--verbose --debug"
     puppet.manifests_path = "puppet/manifests"
     puppet.module_path = "puppet/modules"
     puppet.manifest_file  = "init.pp"

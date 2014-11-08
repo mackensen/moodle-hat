@@ -17,7 +17,9 @@ You will need a [Github personal access token](https://help.github.com/articles/
 After `vagrant up` finishes, open two ssh sessions to the vagrant box. In the first, run `selenium`. This relies on a bash alias to launch the headless Selenium server. In the second window, do this:
 
 - `cd /var/www/moodle/htdocs` (default location of Moodle)
-- `vendor/bin/behat --config /var/www/moodle/behatdata/behat/behat.yml` (runs all Behat tests)
+- `behat` (runs all Behat tests)
+
+`behat` is a shell script which creates reports within `/var/www/behat/` and calls the local vendor binary. You may append standard arguments such as `behat --tags @core_blog`, which would execute core_blog tests only. The reports may be accessed via the command line or at [http://behat.moodle.dev](http://behat.moodle.dev).
 
 PHPUnit tests may be invoked normally from the command line on the vagrant host.
 

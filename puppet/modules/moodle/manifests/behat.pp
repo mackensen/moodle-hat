@@ -11,4 +11,19 @@ class moodle::behat {
     path => '/usr/bin:/usr/sbin:/usr/local/bin',
     cwd => "${moodle::docroot}",
   }
+
+  file {"/var/www/behat":
+    ensure => "directory",
+    mode => 777,
+  }->
+  apache::vhost { 'behat.moodle.dev':
+    port => '80',
+    priority => 2,
+    docroot => "/var/www/behat",
+  }
+
+  file { "/usr/local/bin/behat":
+    source => 'puppet:///modules/moodle/behat.sh',
+    mode => 755,
+  }
 }
