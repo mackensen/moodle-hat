@@ -1,4 +1,7 @@
-class selenium {
+class selenium (
+  $full_version = '2.46.0',
+  $major_version = '2.46',
+) {
   package { ['openjdk-6-jre-headless', 'firefox', 'xvfb']:
     ensure => 'present',
   }
@@ -7,7 +10,7 @@ class selenium {
     ensure => directory,
   }->
   exec { "download-selenium":
-    command => "wget -O /opt/selenium/selenium-server-standalone.jar http://selenium-release.storage.googleapis.com/2.44/selenium-server-standalone-2.44.0.jar",
+    command => "wget -O /opt/selenium/selenium-server-standalone.jar http://selenium-release.storage.googleapis.com/$major_version/selenium-server-standalone-$full_version.jar",
     path => '/usr/bin:/usr/sbin',
     creates => "/opt/selenium/selenium-server-standalone.jar",
   }->
