@@ -29,6 +29,8 @@ The instance itself may be accessed at [http://local.moodle.dev](http://local.mo
 
 Moodle Hat requires recent versions of both Vagrant and VirtualBox to be installed. You also need the [vagrant-hostsupdater](https://github.com/cogitatio/vagrant-hostsupdater) plugin.
 
+Running the full suite of acceptance tests takes several hours. If you experience timeouts, try increasing the amount of memory in the Vagrantfile.
+
 #### Known issues
 
 The initial provisioning task can take a long time because it clones the Moodle git repository from github.
