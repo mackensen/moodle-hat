@@ -25,6 +25,7 @@ $CFG->admin     = 'admin';
 $CFG->behat_dataroot = '/var/www/moodle/behatdata';
 $CFG->behat_prefix = 'behat_';
 $CFG->behat_wwwroot = 'http://localhost';
+$CFG->behat_faildump_path = '/var/www/behat';
 
 // PHPUnit configuration.
 $CFG->phpunit_prefix = 'phpu_';
