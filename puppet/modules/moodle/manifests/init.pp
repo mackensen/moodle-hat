@@ -11,5 +11,6 @@ class moodle (
   class { 'moodle::database': }->
   class { 'moodle::install': }->
   class { 'moodle::behat': }->
-  class { 'moodle::phpunit': }
+  class { 'moodle::phpunit': }->
+  class { 'moodle::npm': }
 }
