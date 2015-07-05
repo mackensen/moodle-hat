@@ -1,3 +1,3 @@
 node 'moodlehat' {
-  include composer, selenium, moodle
+  include composer, selenium, vim, moodle
 }
