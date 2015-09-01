@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 apt-get update
-apt-get install -y git acl
+apt-get install -y git
 
 # Puppet modules
 (puppet module list |grep puppetlabs-apache) || puppet module install puppetlabs-apache

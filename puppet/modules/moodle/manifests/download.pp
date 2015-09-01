@@ -4,5 +4,7 @@ class moodle::download {
     provider => git,
     source => 'https://github.com/moodle/moodle',
     revision => "${moodle::version}",
+    group => vagrant,
+    owner => vagrant,
   }
 }
