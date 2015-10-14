@@ -10,7 +10,7 @@ class moodle::install {
     ensure => "present"
   }->
   exec { "install_moodle":
-    command => "/usr/bin/php admin/cli/install.php --wwwroot=\"http://local.moodle.dev\" --dataroot=${moodle::dataroot} --dbname=moodle --dbuser=moodle --dbpass=moodle --fullname=MoodleHat --shortname=HAT --adminuser=admin --adminpass=P4ssw0rd! --non-interactive --agree-license --allow-unstable",
+    command => "/bin/rm -r config.php; /usr/bin/php admin/cli/install.php --wwwroot=\"http://local.moodle.dev\" --dataroot=${moodle::dataroot} --dbname=moodle --dbuser=moodle --dbpass=moodle --fullname=MoodleHat --shortname=HAT --adminuser=admin --adminpass=P4ssw0rd! --non-interactive --agree-license --allow-unstable",
     creates => "${moodle::docroot}/config.php",
   }->
   file { "${moodle::docroot}/config.php":
