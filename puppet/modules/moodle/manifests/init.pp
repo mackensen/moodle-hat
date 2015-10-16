@@ -4,7 +4,6 @@ class moodle (
   $dataroot = '/var/www/moodle/moodledata',
   $behatdataroot = '/var/www/moodle/behatdata',
   $phpudataroot = '/var/www/moodle/phpudata',
-  $oauth = 'YOUR TOKEN HERE',
 ) {
   class { 'moodle::download': }->
   class { 'moodle::config': }->
