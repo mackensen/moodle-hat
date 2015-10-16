@@ -1,6 +1,6 @@
 class moodle::behat {
   exec { 'configure_composer':
-    command => "composer config -g github-oauth.github.com ${moodle::oauth}",
+    command => "composer config preferred-install dist",
     cwd => "${moodle::docroot}",
     environment => ["COMPOSER_HOME=/home/vagrant"],
     path => '/usr/bin:/usr/sbin:/usr/local/bin',
