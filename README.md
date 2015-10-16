@@ -12,8 +12,6 @@ Configuring Behat and Selenium isn't one of my favorite things. This project pro
 
 These instructions assume a basic familiarity with Vagrant.
 
-You will need a [Github personal access token](https://help.github.com/articles/git-automation-with-oauth-tokens/) to download the composer dependencies for Behat and PHPUnit. Replace the placeholder value in `$oauth` in [the Moodle initiation file](puppet/modules/moodle/manifests/init.pp) with a valid token.
-
 After `vagrant up` finishes, open two ssh sessions to the vagrant box. In the first, run `selenium`. This relies on a bash alias to launch the headless Selenium server. In the second window, do this:
 
 - `cd /var/www/moodle/htdocs` (default location of Moodle)
