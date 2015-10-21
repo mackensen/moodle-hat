@@ -10,6 +10,11 @@ class moodle::behat {
     environment => ["COMPOSER_HOME=/home/vagrant"],
     path => '/usr/bin:/usr/sbin:/usr/local/bin',
     cwd => "${moodle::docroot}",
+  }->
+  exec { 'reset_git':
+    command => 'git checkout -- composer.json',
+    path => '/usr/bin:/usr/sbin:/usr/local/bin',
+    cwd => "${moodle::docroot}",
   }
 
   file {"/var/www/behat":

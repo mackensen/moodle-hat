@@ -1,5 +1,5 @@
 class moodle (
-  $version = 'master',
+  $version = "${::instance::moodleversion}",
   $docroot = '/var/www/moodle/htdocs',
   $dataroot = '/var/www/moodle/moodledata',
   $behatdataroot = '/var/www/moodle/behatdata',
