@@ -1,6 +1,6 @@
 class moodle::behat {
   exec { 'configure_composer':
-    command => "composer config -g github-oauth.github.com ${moodle::oauth}",
+    command => "composer config preferred-install dist",
     cwd => "${moodle::docroot}",
     environment => ["COMPOSER_HOME=/home/vagrant"],
     path => '/usr/bin:/usr/sbin:/usr/local/bin',
@@ -8,6 +8,11 @@ class moodle::behat {
   exec { 'configure_behat':
     command => 'php admin/tool/behat/cli/init.php',
     environment => ["COMPOSER_HOME=/home/vagrant"],
+    path => '/usr/bin:/usr/sbin:/usr/local/bin',
+    cwd => "${moodle::docroot}",
+  }->
+  exec { 'reset_git':
+    command => 'git checkout -- composer.json',
     path => '/usr/bin:/usr/sbin:/usr/local/bin',
     cwd => "${moodle::docroot}",
   }

@@ -2,7 +2,8 @@ class moodle::download {
   vcsrepo { "${moodle::docroot}":
     ensure => present,
     provider => git,
-    source => 'https://github.com/moodle/moodle',
+    remote => "${::instance::remotename}",
+    source => "${::instance::moodlesource}",
     revision => "${moodle::version}",
     group => vagrant,
     owner => vagrant,

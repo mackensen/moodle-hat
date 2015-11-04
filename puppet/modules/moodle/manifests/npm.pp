@@ -24,7 +24,7 @@ class moodle::npm {
   }
 
   exec { 'configure_npm':
-    command => 'npm install',
+    command => 'test -f package.json && npm install; true',
     path => '/usr/bin:/usr/sbin:/usr/local/bin',
     require => Package['npm'],
     cwd => "${moodle::docroot}",
