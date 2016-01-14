@@ -2,8 +2,12 @@ class selenium (
   $full_version = '2.46.0',
   $major_version = '2.46',
 ) {
-  package { ['openjdk-6-jre-headless', 'firefox', 'xvfb']:
+  package { ['openjdk-6-jre-headless', 'xvfb']:
     ensure => 'present',
+  }
+
+  package { ['firefox']:
+    ensure => '28.0+build2-0ubuntu2',
   }
 
   file { "/opt/selenium":
