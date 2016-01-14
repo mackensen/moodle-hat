@@ -8,5 +8,6 @@ class composer {
     path => '/usr/bin:/usr/sbin',
     require => Package['curl', 'php5'],
     creates => '/usr/local/bin/composer',
+    environment => ["COMPOSER_HOME=/home/vagrant"],
   }
 }
