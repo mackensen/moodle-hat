@@ -11,11 +11,12 @@ class moodle::config {
   class {'::apache::mod::prefork':
   }->
   class {'::apache::mod::php':
-  }->
+  }
+
   file { ["${moodle::dataroot}", "${moodle::behatdataroot}", "${moodle::phpudataroot}"] :
-    ensure => "directory",
-    owner => "root",
-    group => "root",
-    mode => 777,
+    ensure => 'directory',
+    owner => 'www-data',
+    group => 'vagrant',
+    mode => 774,
   }
 }

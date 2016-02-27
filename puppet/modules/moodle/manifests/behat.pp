@@ -12,17 +12,21 @@ class moodle::behat {
     cwd => "${moodle::docroot}",
   }
 
-  file {"/var/www/behat":
-    ensure => "directory",
-    mode => 777,
-  }->
+  file { '/var/www/behat':
+    ensure => 'directory',
+    owner => 'www-data',
+    group => 'vagrant',
+    mode => 774,
+  }
+
   apache::vhost { 'behat.moodle.dev':
     port => '80',
     priority => 2,
     docroot => "/var/www/behat",
+    require => File['/var/www/behat'],
   }
 
-  file { "/usr/local/bin/behat":
+  file { '/usr/local/bin/behat':
     source => 'puppet:///modules/moodle/behat.sh',
     mode => 755,
   }
