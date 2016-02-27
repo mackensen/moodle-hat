@@ -31,7 +31,8 @@ Running the full suite of acceptance tests takes several hours. If you experienc
 
 #### Known issues
 
-The initial provisioning task can take a long time because it clones the Moodle git repository from github.
+- The initial provisioning task can take a long time because it clones the Moodle git repository from github.
+- If you destroy and re-create the VM delete `config.php` inside the shared `moodle/` folder otherwise core Moodle won't re-install.
 
 ## Copyright / License
 
