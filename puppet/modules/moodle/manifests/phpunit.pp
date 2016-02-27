@@ -4,9 +4,12 @@ class moodle::phpunit {
     environment => ["COMPOSER_HOME=/home/vagrant"],
     path => '/usr/bin:/usr/sbin:/usr/local/bin',
     cwd => "${moodle::docroot}",
+    require => Exec['configure_composer', 'install_moodle'],
   }
+
   class { 'locales':
     default_locale  => 'en_US.UTF-8',
     locales => ['en_US.UTF-8 UTF-8', 'en_AU.UTF-8 UTF-8'],
+    before => Exec['configure_phpunit'],
   }
 }

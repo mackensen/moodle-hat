@@ -20,13 +20,19 @@ class moodle::npm {
   exec { 'npm_reload_shell':
     command => "bash -c 'source /home/vagrant/.bash_profile'",
     path => '/bin',
-    require => Exec['grunt-cli','shifter'],
+    require => [
+      Exec['grunt-cli','shifter'],
+      File['/home/vagrant/.bash_profile'],
+    ],
   }
 
   exec { 'configure_npm':
     command => 'npm install',
     path => '/usr/bin:/usr/sbin:/usr/local/bin',
-    require => Package['npm'],
+    require => [
+      Package['npm'],
+      Vcsrepo["${moodle::docroot}"],
+    ],
     cwd => "${moodle::docroot}",
   }
 }

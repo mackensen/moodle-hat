@@ -3,6 +3,7 @@ class moodle::config {
     default_vhost => false,
     mpm_module => false,
   }
+
   apache::vhost { 'local.moodle.dev':
     port => '80',
     priority => 1,

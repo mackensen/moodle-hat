@@ -11,5 +11,6 @@ class moodle::database {
     grant => ['all'],
     charset => 'utf8',
     collate => 'utf8_bin',
+    before => Exec['configure_behat', 'configure_phpunit', 'install_moodle'],
   }
 }
