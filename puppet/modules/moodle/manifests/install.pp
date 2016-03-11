@@ -19,8 +19,8 @@ class moodle::install {
   file { "${moodle::docroot}/config.php":
     source => 'puppet:///modules/moodle/config.php',
     group => 'vagrant',
-    owner => 'www-data',
-    mode => '774',
+    owner => 'vagrant',
+    mode => '777',
     require => Exec['install_moodle'],
   }
 }

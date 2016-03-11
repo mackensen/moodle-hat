@@ -9,9 +9,7 @@ class moodle::behat {
 
   file { '/var/www/behat':
     ensure => 'directory',
-    owner => 'www-data',
-    group => 'vagrant',
-    mode => 774,
+    mode => 777,
   }
 
   apache::vhost { 'behat.moodle.dev':

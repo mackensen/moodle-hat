@@ -31,7 +31,7 @@ $CFG->behat_faildump_path = '/var/www/behat';
 $CFG->phpunit_prefix = 'phpu_';
 $CFG->phpunit_dataroot = '/var/www/moodle/phpudata';
 
-$CFG->directorypermissions = 02775;
+$CFG->directorypermissions = 02777;
 
 
 // There is no php closing tag in this file,

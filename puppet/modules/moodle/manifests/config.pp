@@ -16,8 +16,8 @@ class moodle::config {
 
   file { ["${moodle::dataroot}", "${moodle::behatdataroot}", "${moodle::phpudataroot}"] :
     ensure => 'directory',
-    owner => 'www-data',
-    group => 'vagrant',
-    mode => 774,
+    owner => 'root',
+    group => 'root',
+    mode => 777,
   }
 }
