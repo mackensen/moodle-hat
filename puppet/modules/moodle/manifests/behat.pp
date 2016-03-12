@@ -4,7 +4,7 @@ class moodle::behat {
     environment => ["COMPOSER_HOME=/home/vagrant"],
     path => '/usr/bin:/usr/sbin:/usr/local/bin',
     cwd => "${moodle::docroot}",
-    require => Exec['configure_composer', 'install_moodle'],
+    require => Exec['configure_composer'],
   }
 
   file { '/var/www/behat':

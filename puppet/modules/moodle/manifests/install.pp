@@ -22,5 +22,6 @@ class moodle::install {
     owner => 'vagrant',
     mode => '777',
     require => Exec['install_moodle'],
+    before => Exec['configure_behat', 'configure_phpunit'],
   }
 }
