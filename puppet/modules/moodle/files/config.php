@@ -31,6 +31,12 @@ $CFG->behat_faildump_path = '/var/www/behat';
 $CFG->phpunit_prefix = 'phpu_';
 $CFG->phpunit_dataroot = '/var/www/moodle/phpudata';
 
+// OpenLDAP configuration.
+define('TEST_AUTH_LDAP_HOST_URL', 'ldap://127.0.0.1');
+define('TEST_AUTH_LDAP_BIND_DN', 'cn=admin,dc=example,dc=com');
+define('TEST_AUTH_LDAP_BIND_PW', 'password');
+define('TEST_AUTH_LDAP_DOMAIN', 'dc=example,dc=com');
+
 $CFG->directorypermissions = 02777;
 
 
