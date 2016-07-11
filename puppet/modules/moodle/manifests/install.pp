@@ -24,4 +24,12 @@ class moodle::install {
     require => Exec['install_moodle'],
     before => Exec['configure_behat', 'configure_phpunit'],
   }
+
+  exec { 'update_composer':
+    command => "composer update",
+    environment => ["COMPOSER_HOME=/home/vagrant"],
+    path => '/usr/bin:/usr/sbin:/usr/local/bin',
+    cwd => "${moodle::docroot}",
+    require => Exec['composer', 'install_moodle'],
+  }
 }
