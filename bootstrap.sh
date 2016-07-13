@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-apt-get update
+apt-get update -y
+add-apt-repository ppa:ondrej/php
+apt-get -y update
 apt-get install -y git
 
 # Puppet modules

@@ -12,6 +12,8 @@ class moodle::config {
   class {'::apache::mod::prefork':
   }->
   class {'::apache::mod::php':
+    package_name => 'libapache2-mod-php5.6',
+    path => '/usr/lib/apache2/modules/libphp5.6.so',
   }
 
   file { ["${moodle::dataroot}", "${moodle::behatdataroot}", "${moodle::phpudataroot}"] :
