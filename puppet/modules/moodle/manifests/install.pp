@@ -1,6 +1,6 @@
 class moodle::install {
   Exec {
-    path        => ['/bin','/usr/bin'],
+    path        => ['/bin','/usr/bin', '/usr/sbin'],
     environment => ['HOME=/root'],
     provider    => 'shell',
     cwd         => "${moodle::docroot}",
@@ -8,7 +8,22 @@ class moodle::install {
 
   package { ['php5.6', 'php5.6-cli', 'php5.6-mysql', 'php5.6-curl', 'php5.6-gd', 'php5.6-xmlrpc', 'php5.6-intl', 'php5.6-xml', 'php5.6-mbstring', 'php5.6-zip', 'php5.6-ldap']:
     ensure => 'present',
-    before => Exec['install_moodle'],
+    before => [
+      Exec['install_moodle'],
+      File['/etc/php/5.6/mods-available/custom.ini'],
+    ],
+  }
+
+  file {'/etc/php/5.6/mods-available/custom.ini':
+    ensure => 'present',
+    owner => root, group => root, mode => 444,
+    content => "always_populate_raw_post_data = -1\n",
+    before => Exec['enable_custom_ini'],
+  }
+
+  exec { 'enable_custom_ini':
+    command => '/usr/sbin/phpenmod custom',
+    notify => Service['apache2'],
   }
 
   exec { 'install_moodle':
