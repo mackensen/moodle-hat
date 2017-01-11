@@ -13,4 +13,11 @@ class moodle::database {
     collate => 'utf8_bin',
     before => Exec['configure_behat', 'configure_phpunit', 'install_moodle'],
   }
+
+  class { 'postgresql::server': }
+
+  postgresql::server::db { 'moodle':
+    user => 'moodle',
+    password => postgresql_password('moodle', 'moodle'),
+  }
 }
