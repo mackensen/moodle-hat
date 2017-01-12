@@ -29,7 +29,7 @@ Moodle Hat requires recent versions of both Vagrant and VirtualBox to be install
 
 Running the full suite of acceptance tests takes several hours. If you experience timeouts, try increasing the amount of memory in the Vagrantfile.
 
-### Database support
+#### Database support
 
 Both MySQL and PostgreSQL are installed and configured; the database schemas are named `moodle` and are accessed by that same username and password. Moodle is installed on MySQL by default; to use PostgreSQL instead change the database driver in `config.php` and reinstall.
 
