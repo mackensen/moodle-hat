@@ -4,7 +4,7 @@ class moodle::phpunit {
     environment => ["COMPOSER_HOME=/home/vagrant"],
     path => '/usr/bin:/usr/sbin:/usr/local/bin',
     cwd => "${moodle::docroot}",
-    require => Exec['update_composer'],
+    require => Exec['composer_install'],
   }
 
   class { 'locales':

@@ -40,11 +40,18 @@ class moodle::install {
     before => Exec['configure_behat', 'configure_phpunit'],
   }
 
-  exec { 'update_composer':
-    command => "composer update",
+  exec { 'clean_vendor':
+    command => "rm -rf vendor/",
+    path => '/bin',
+    cwd => "${moodle::docroot}",
+  }
+
+  exec { 'composer_install':
+    command => "composer install",
     environment => ["COMPOSER_HOME=/home/vagrant"],
     path => '/usr/bin:/usr/sbin:/usr/local/bin',
     cwd => "${moodle::docroot}",
-    require => Exec['composer', 'install_moodle'],
+    require => Exec['composer', 'install_moodle', 'clean_vendor'],
   }
+
 }
