@@ -12,4 +12,5 @@ class moodle (
   class { 'moodle::behat': }
   class { 'moodle::phpunit': }
   class { 'moodle::npm': }
+  class { 'moodle::cron': }
 }

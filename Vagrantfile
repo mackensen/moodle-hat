@@ -17,7 +17,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Define host aliases.
   config.vm.hostname = "moodlehat"
-  config.hostsupdater.aliases = ["local.moodle.dev", "behat.moodle.dev"]
+  config.hostsupdater.aliases = ["local.moodle.dev", "behat.moodle.dev", "cron.moodle.dev"]
   config.hostsupdater.remove_on_suspend = true
 
   # Disable automatic box update checking. If you disable this, then
