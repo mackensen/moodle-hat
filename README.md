@@ -2,7 +2,7 @@
 
 Moodle Hat is a [Vagrant](http://vagrantup.com) configuration which provisions a Moodle instance with Behat [Acceptance testing](https://docs.moodle.org/dev/Acceptance_testing) and [PHPUnit testing](https://docs.moodle.org/dev/PHPUnit) configured. It uses a headless [Selenium](http://www.seleniumhq.org/) server for Javascript testing.
 
-The `MOODLE_31_STABLE` branch is locked on that version of Moodle instead of `master`. To stay on bleeding-edge Moodle, please switch to the `master` branch.
+The `MOODLE_30_STABLE` branch is locked on that version of Moodle instead of `master`. To stay on bleeding-edge Moodle, please switch to the `master` branch.
 
 ## Overview
 
@@ -19,11 +19,11 @@ After `vagrant up` finishes, open two ssh sessions to the vagrant box. In the fi
 - `cd /var/www/moodle/htdocs` (default location of Moodle)
 - `behat` (runs all Behat tests)
 
-`behat` is a shell script which creates reports within `/var/www/behat/` and calls the local vendor binary. You may append standard arguments such as `behat --tags @core_blog`, which would execute core_blog tests only. The reports may be accessed via the command line or at [http://behat31.moodle.dev](http://behat31.moodle.dev).
+`behat` is a shell script which creates reports within `/var/www/behat/` and calls the local vendor binary. You may append standard arguments such as `behat --tags @core_blog`, which would execute core_blog tests only. The reports may be accessed via the command line or at [http://behat30.moodle.dev](http://behat30.moodle.dev).
 
 PHPUnit tests may be invoked normally from the command line on the vagrant host.
 
-The instance itself may be accessed at [http://local31.moodle.dev](http://local31.moodle.dev).
+The instance itself may be accessed at [http://local30.moodle.dev](http://local30.moodle.dev).
 
 #### Software requirements
 

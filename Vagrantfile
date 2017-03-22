@@ -16,8 +16,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :shell, path: "bootstrap.sh"
 
   # Define host aliases.
-  config.vm.hostname = "moodlehat31"
-  config.hostsupdater.aliases = ["local31.moodle.dev", "behat31.moodle.dev"]
+  config.vm.hostname = "moodlehat30"
+  config.hostsupdater.aliases = ["local30.moodle.dev", "behat30.moodle.dev"]
   config.hostsupdater.remove_on_suspend = true
 
   # Disable automatic box update checking. If you disable this, then
@@ -32,7 +32,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  config.vm.network "private_network", ip: "192.168.50.31"
+  config.vm.network "private_network", ip: "192.168.50.30"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on

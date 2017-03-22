@@ -1,5 +1,5 @@
 class moodle (
-  $version = 'MOODLE_31_STABLE',
+  $version = 'MOODLE_30_STABLE',
   $docroot = '/var/www/moodle/htdocs',
   $dataroot = '/var/www/moodle/moodledata',
   $behatdataroot = '/var/www/moodle/behatdata',
