@@ -6,4 +6,4 @@ sudo sed -i "s|\$CFG->behat_faildump_path.*|\$CFG->behat_faildump_path='$BEHATPA
 
 vendor/bin/behat --format=moodle_progress --out=std \
         --format=progress --out $BEHATPATH/progress.txt \
-        --config=$BEHATDATAROOT/behat/behat.yml "$@"
+        --config=$BEHATDATAROOT/behatrun/behat/behat.yml "$@"
