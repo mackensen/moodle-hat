@@ -21,9 +21,15 @@ After `vagrant up` finishes, open two ssh sessions to the vagrant box. In the fi
 
 `behat` is a shell script which creates reports within `/var/www/behat/` and calls the local vendor binary. You may append standard arguments such as `behat --tags @core_blog`, which would execute core_blog tests only. The reports may be accessed via the command line or at [http://behat31.moodle.dev](http://behat31.moodle.dev).
 
-PHPUnit tests may be invoked normally from the command line on the vagrant host.
+PHPUnit tests may be invoked normally from the command line on the vagrant host. To run the tests with [xdebug](https://docs.moodle.org/dev/Profiling_PHP) support, use this syntax:
 
-The instance itself may be accessed at [http://local31.moodle.dev](http://local31.moodle.dev).
+```bash
+php -d xdebug.profiler_enable=on vendor/bin/phpunit ...
+```
+
+Profiles are logged to `/tmp` on the virtual machine and may be inspected at http://webgrind31.moodle.dev, which runs [Webgrind](https://github.com/jokkedk/webgrind).
+
+The Moodle instance itself may be accessed at [http://local31.moodle.dev](http://local31.moodle.dev).
 
 #### Software requirements
 
