@@ -10,7 +10,7 @@ Configuring Behat and Selenium isn't one of my favorite things. This project pro
 
 ### How to Use
 
-These instructions assume a basic familiarity with Vagrant. Run `vagrant up` after the initial clone and `vagrant provision` after updates. The Moodle instance may be accessed at [http://local.moodle.dev](http://local.moodle.dev).
+These instructions assume a basic familiarity with Vagrant. Run `vagrant up` after the initial clone and `vagrant provision` after updates. The Moodle instance may be accessed at [http://local.moodle.dev](http://local.moodle.dev). The default credentials are `admin`/`P4ssw0rd!`.
 
 #### Behat
 
