@@ -1,19 +1,19 @@
 class moodle::npm {
-  package { ['npm','nodejs-legacy']:
+  package { ['nodejs']:
     ensure => 'present',
   }
 
   exec { 'grunt-cli':
     command => 'npm install -g grunt-cli',
     path => '/usr/bin:/usr/sbin',
-    require => Package['npm'],
+    require => Package['nodejs'],
     creates => '/usr/local/bin/grunt',
   }
 
   exec { 'shifter':
     command => 'npm install -g shifter@0.4.6',
     path => '/usr/bin:/usr/sbin',
-    require => Package['npm'],
+    require => Package['nodejs'],
     creates => '/usr/local/bin/shifter',
   }
 
@@ -30,7 +30,7 @@ class moodle::npm {
     command => 'npm install',
     path => '/usr/bin:/usr/sbin:/usr/local/bin',
     require => [
-      Package['npm'],
+      Package['nodejs'],
       Vcsrepo["${moodle::docroot}"],
     ],
     cwd => "${moodle::docroot}",
