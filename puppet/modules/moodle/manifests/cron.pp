@@ -14,7 +14,7 @@ class moodle::cron {
     mode => 777,
   }
 
-  apache::vhost { 'cron.moodle.dev':
+  apache::vhost { 'cron.moodle.test':
     port => '80',
     priority => 2,
     docroot => "/var/www/cron",

@@ -8,7 +8,7 @@ class webgrind {
     owner => www-data,
   }
 
-  apache::vhost { 'webgrind.moodle.dev':
+  apache::vhost { 'webgrind.moodle.test':
     port => '80',
     priority => 2,
     docroot => "/var/www/webgrind",

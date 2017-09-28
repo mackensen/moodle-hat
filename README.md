@@ -10,7 +10,7 @@ Configuring Behat and Selenium isn't one of my favorite things. This project pro
 
 ### How to Use
 
-These instructions assume a basic familiarity with Vagrant. Run `vagrant up` after the initial clone and `vagrant provision` after updates. The Moodle instance may be accessed at [http://local.moodle.dev](http://local.moodle.dev). The default credentials are `admin`/`P4ssw0rd!`.
+These instructions assume a basic familiarity with Vagrant. Run `vagrant up` after the initial clone and `vagrant provision` after updates. The Moodle instance may be accessed at [http://local.moodle.test](http://local.moodle.test). The default credentials are `admin`/`P4ssw0rd!`.
 
 #### Behat
 
@@ -19,7 +19,7 @@ Open two ssh sessions to the vagrant box. In the first, run `selenium`. This rel
 - `cd /var/www/moodle/htdocs` (default location of Moodle)
 - `behat` (runs all Behat tests)
 
-`behat` is a shell script which creates reports within `/var/www/behat/` and calls the local vendor binary. You may append standard arguments such as `behat --tags @core_blog`, which would execute core_blog tests only. The reports may be accessed via the command line or at [http://behat.moodle.dev](http://behat.moodle.dev).
+`behat` is a shell script which creates reports within `/var/www/behat/` and calls the local vendor binary. You may append standard arguments such as `behat --tags @core_blog`, which would execute core_blog tests only. The reports may be accessed via the command line or at [http://behat.moodle.test](http://behat.moodle.test).
 
 #### PHPUnit
 
@@ -29,11 +29,11 @@ PHPUnit tests may be invoked normally from the command line on the vagrant host.
 php -d xdebug.profiler_enable=on vendor/bin/phpunit ...
 ```
 
-Profiles are logged to `/tmp` on the virtual machine and may be inspected at [http://webgrind.moodle.dev](http://webgrind.moodle.dev), which runs [Webgrind](https://github.com/jokkedk/webgrind).
+Profiles are logged to `/tmp` on the virtual machine and may be inspected at [http://webgrind.moodle.test](http://webgrind.moodle.test), which runs [Webgrind](https://github.com/jokkedk/webgrind).
 
 #### Cron
 
-Cron is enabled by default under the `www-data` user. It logs to `/var/www/cron`. You may view the logs at [http://cron.moodle.dev](http://cron.moodle.dev).
+Cron is enabled by default under the `www-data` user. It logs to `/var/www/cron`. You may view the logs at [http://cron.moodle.test](http://cron.moodle.test).
 
 ### Software requirements
 

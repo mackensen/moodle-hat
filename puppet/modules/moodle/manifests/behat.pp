@@ -12,7 +12,7 @@ class moodle::behat {
     mode => 777,
   }
 
-  apache::vhost { 'behat.moodle.dev':
+  apache::vhost { 'behat.moodle.test':
     port => '80',
     priority => 2,
     docroot => "/var/www/behat",

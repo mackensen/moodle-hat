@@ -4,7 +4,7 @@ class moodle::config {
     mpm_module => false,
   }
 
-  apache::vhost { 'local.moodle.dev':
+  apache::vhost { 'local.moodle.test':
     port => '80',
     priority => 1,
     docroot => "${moodle::docroot}",
