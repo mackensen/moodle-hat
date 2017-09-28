@@ -6,15 +6,16 @@ class moodle::install {
     cwd         => "${moodle::docroot}",
   }
 
-  package { ['php5.6', 'php5.6-cli', 'php5.6-mysql', 'php5.6-pgsql', 'php5.6-curl', 'php5.6-gd', 'php5.6-xmlrpc', 'php5.6-intl', 'php5.6-xml', 'php5.6-mbstring', 'php5.6-zip', 'php5.6-ldap', 'php5.6-xdebug']:
+  package { ['php7.1', 'php7.1-cli', 'php7.1-mysql', 'php7.1-pgsql', 'php7.1-curl', 'php7.1-gd', 'php7.1-xmlrpc', 'php7.1-intl', 'php7.1-xml', 'php7.1-mbstring', 'php7.1-zip', 'php7.1-ldap', 'php7.1-xdebug']:
     ensure => 'present',
     before => [
       Exec['install_moodle'],
-      File['/etc/php/5.6/mods-available/custom.ini'],
+      Exec['composer'],
+      File['/etc/php/7.1/mods-available/custom.ini'],
     ],
   }
 
-  file {'/etc/php/5.6/mods-available/custom.ini':
+  file {'/etc/php/7.1/mods-available/custom.ini':
     ensure => 'present',
     owner => root, group => root, mode => 444,
     content => "always_populate_raw_post_data = -1\n",
@@ -22,7 +23,7 @@ class moodle::install {
   }
 
   exec { 'enable_custom_ini':
-    command => '/usr/sbin/phpenmod custom',
+    command => '/usr/sbin/phpenmod -v php7.1 custom',
     notify => Service['apache2'],
   }
 
