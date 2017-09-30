@@ -1,13 +1,27 @@
 class selenium (
-  $full_version = '2.46.0',
-  $major_version = '2.46',
+  $full_version = '2.53.1',
+  $major_version = '2.53',
 ) {
-  package { ['openjdk-6-jre-headless', 'xvfb']:
+  package { ['openjdk-8-jre-headless', 'xvfb']:
     ensure => 'present',
   }
 
   package { ['firefox']:
-    ensure => '28.0+build2-0ubuntu2',
+    ensure => 'purged',
+    before => Exec['download-firefox'],
+  }
+
+  exec { "download-firefox":
+    command => "curl http://ftp.mozilla.org/pub/firefox/releases/47.0.1/linux-x86_64/en-US/firefox-47.0.1.tar.bz2 | tar -xj",
+    path => '/usr/bin:/bin',
+    creates => "/opt/firefox",
+    cwd => '/opt',
+    before => File['/usr/bin/firefox']
+  }
+
+  file { "/usr/bin/firefox":
+    ensure => 'link',
+    target => '/opt/firefox/firefox',
   }
 
   file { "/opt/selenium":

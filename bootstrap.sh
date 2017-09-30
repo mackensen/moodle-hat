@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 apt-get update -y
 add-apt-repository ppa:ondrej/php
+add-apt-repository ppa:openjdk-r/ppa
 curl -sL https://deb.nodesource.com/setup_8.x | bash -
 apt-get -y update
 apt-get install -y git
