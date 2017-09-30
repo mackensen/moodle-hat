@@ -15,6 +15,11 @@ class webgrind {
     require => Vcsrepo['/var/www/webgrind'],
   }
 
+  package { ['g++']:
+    ensure => present,
+    before => Exec['make-webgrind'],
+  }
+
   exec { 'make-webgrind':
     command => 'make',
     path => '/usr/bin',
