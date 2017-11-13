@@ -9,7 +9,7 @@ class moodle::database {
     password => 'moodle',
     host => 'localhost',
     grant => ['all'],
-    charset => 'utf8',
+    charset => 'utf8mb4',
     collate => 'utf8_bin',
     before => Exec['configure_behat', 'configure_phpunit', 'install_moodle'],
   }
