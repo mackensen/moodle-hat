@@ -11,10 +11,13 @@ class moodle::config {
   }->
   class {'::apache::mod::prefork':
   }->
-  class {'::apache::mod::php':
-    package_name => 'php7.1',
-    php_version => '7.1',
-    path => '/usr/lib/apache2/modules/libphp7.1.so',
+  apache::fastcgi::server { 'fpm':
+    host       => '127.0.0.1:9000',
+    timeout    => 15,
+    flush      => false,
+    faux_path  => '/var/www/php.fcgi',
+    fcgi_alias => '/php.fcgi',
+    file_type  => 'application/x-httpd-php'
   }
 
   file { ["${moodle::dataroot}", "${moodle::behatdataroot}", "${moodle::phpudataroot}"] :
