@@ -12,7 +12,7 @@ class moodle::config {
     port => '80',
     priority => 1,
     docroot => "${moodle::docroot}",
-    custom_fragment => 'ProxyPassMatch "^/(.*\.php)$" "fcgi://localhost:9001/var/www/moodle/htdocs"'
+    custom_fragment => 'ProxyPassMatch "^\/(.*\.php.*)$" "fcgi://localhost:9001/var/www/moodle/htdocs/$1"'
   }->
   class {'::apache::mod::prefork':
   }->
