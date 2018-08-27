@@ -4,17 +4,25 @@ class moodle::config {
     mpm_module => false,
   }
 
+  apache::mod { 'actions': }
+  apache::mod { 'proxy': }
+  apache::mod { 'proxy_fcgi': }
+
   apache::vhost { 'local.moodle.test':
     port => '80',
     priority => 1,
     docroot => "${moodle::docroot}",
+    custom_fragment => 'ProxyPassMatch "^\/(.*\.php.*)$" "fcgi://localhost:9001/var/www/moodle/htdocs/$1"'
   }->
   class {'::apache::mod::prefork':
   }->
-  class {'::apache::mod::php':
-    package_name => 'php7.1',
-    php_version => '7.1',
-    path => '/usr/lib/apache2/modules/libphp7.1.so',
+  apache::fastcgi::server { 'fpm':
+    host       => '127.0.0.1:9001',
+    timeout    => 15,
+    flush      => false,
+    faux_path  => '/var/www/php.fcgi',
+    fcgi_alias => '/php.fcgi',
+    file_type  => 'application/x-httpd-php'
   }
 
   file { ["${moodle::dataroot}", "${moodle::behatdataroot}", "${moodle::phpudataroot}"] :

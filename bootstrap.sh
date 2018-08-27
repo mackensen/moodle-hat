@@ -14,3 +14,4 @@ apt-get install -y git
 (puppet module list |grep puppetlabs-stdlib) || puppet module install puppetlabs-stdlib
 (puppet module list |grep saz-locales) || puppet module install saz-locales
 (puppet module list |grep camptocamp-openldap) || puppet module install camptocamp-openldap --version=1.15.0
+(puppet module list |grep mayflower-php) || puppet module install mayflower-php --version 4.0.0-beta1
