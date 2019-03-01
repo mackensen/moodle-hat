@@ -3,7 +3,9 @@ class moodle::database {
     override_options => { 'mysqld' => { 'innodb_file_per_table' => 1, 'innodb_file_format' => 'barracuda', 'innodb_large_prefix' => '1', } },
     restart => true,
   }
-
+  exec { 'drop_moodle_db':
+    command => '/usr/bin/mysql -uroot -e "DROP DATABASE IF EXISTS moodle"',
+  }->
   mysql::db { 'moodle':
     user => 'moodle',
     password => 'moodle',
